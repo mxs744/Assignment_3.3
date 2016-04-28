@@ -31,6 +31,7 @@ public class DayWeek {
 	public int getIndex(weekDay day) {
 		int i = 0;
 		switch (day) {
+		
 		case MON: i = 0; break;
 		case TUE: i = 1; break;
 		case WED: i = 2; break;
@@ -44,7 +45,9 @@ public class DayWeek {
 	
 	//Case break here
 	public weekDay getDay(int Index1) {
+		
 		weekDay day1 = weekDay.MON;
+		
 		switch (Index1) {
 		case 0: day1 = weekDay.MON; break;
 		case 1: day1 = weekDay.TUE; break;
@@ -94,7 +97,14 @@ public class DayWeek {
 	
 	//Returns the day based on number added
 	public weekDay returnAddDay(int num) {
+		if(num < 0){
+			num = 7+(num%7);
+		}
 		return getDay((getIndex(this.Day)+num)%7);
 	}
-	
+
+	//Returns the day based on number of days subtracted
+//	public weekDay returnPreviousDay1() {
+//		For(int x = 0; )
+//	}
 }

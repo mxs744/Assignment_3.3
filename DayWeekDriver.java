@@ -4,7 +4,6 @@ public class DayWeekDriver {
 	
 	public static void main(String[] args) {
 		
-		JOptionPane JOPane;
 		
 		//Lists choices here
 		DayWeek.weekDay[] choices = {DayWeek.weekDay.MON, DayWeek.weekDay.TUE,DayWeek.weekDay.WED, DayWeek.weekDay.THU, DayWeek.weekDay.FRI,DayWeek.weekDay.SAT, DayWeek.weekDay.SUN};
@@ -22,7 +21,7 @@ public class DayWeekDriver {
 		System.out.println("Day chosen: " + DayWeek.printDay(weekday.returnDay()));
 		System.out.println("Next day: " + DayWeek.printDay(weekday.returnNextDay()));
 		System.out.println("Previous day: " + DayWeek.printDay(weekday.returnPreviousDay()));
-		System.out.println(addDay + " Day(s) from now : " + DayWeek.printDay(weekday.returnAddDay(addDay)));
+		System.out.println(addDay + " Day(s) from now/previous : " + DayWeek.printDay(weekday.returnAddDay(addDay)));
 		
 		
 	}
