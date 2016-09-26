@@ -1,0 +1,85 @@
+package javaapplication2;
+// Michael Schreiber/Patricia Paredes
+
+// Bisection Method -
+public class Bisection01 {
+
+    public static void main(String[] args) {
+        final double epsilon = 0.00001; //find within five decimal places
+        
+        double[] boundsA = {0, 0, 0, .5, 2, 4, 6, 8, 14, 95};
+          double[] boundsB = {1, 1, 1 , 1, 4, 6, 8, 12, 16 , 100};
+        for (int i = 0; i < 10; i++) {
+
+            double a, b, m, lb, up; //declare variables here
+
+            a = boundsA[i];
+            b = boundsB[i];    //assign interval bounds here, from arrays created
+
+            int k = 0; //counter, OR (k)ounter
+
+            while (Math.abs(b - a) > epsilon) {
+                m = (a + b) / 2;           // Mid point
+                k++;
+
+                lb = getEquation(i, m);     //equation method here  
+                up = getEquation(i, a);
+
+                if ((lb > 0 && up < 0) || (lb < 0 && up > 0)) {
+                    b = m;
+                } else {
+                    a = m;
+                }
+                System.out.println("New interval: [" + a + " .. " + b + "]");
+
+            }
+
+            System.out.println("Approximate solution = " + (a + b) / 2);
+            System.out.println("The number of iterations needed was: " + k);
+        }
+    }
+
+    private static double getEquation(int i, double m) {
+        // i is loop counter, m is value AKA x, this method will use the same code for different equations
+
+        double result = 1;
+
+        // Switch Case here with the different equations
+        switch (i) {
+            case 0:
+                result = (.5 * (3 * Math.pow(m, 2) - 1)); //equation 1(a)
+                break;
+            case 1:
+                result = (.5 * (5 * Math.pow(m, 3) - (3 * m))); //equation 1(b)
+                break;
+            case 2:
+                result = (((35 * Math.pow(m, 4)) - (30 * Math.pow(m, 2)) + 3) / 8); //equation 1(c) First root
+                break;
+            case 3:
+                result = (((35 * Math.pow(m, 4)) - (30 * Math.pow(m, 2)) + 3) / 8); //equation 1(c) Second root
+                break;
+            case 4:
+                result = m*Math.cos(m) + Math.sin(m); //equation 4
+                break;
+            case 5:
+                result = m*Math.cos(m) + Math.sin(m); // equation 4
+                break;
+            case 6:
+                result = m*Math.cos(m) + Math.sin(m); //equation 4
+                break;
+            case 7:
+                result = m*Math.cos(m) + Math.sin(m); // equation 4
+                break;
+            case 8:
+                result = m*Math.cos(m) + Math.sin(m); //equation 4
+                break;
+            case 9:
+                result = -.0001 + (1/(1+ Math.pow(m,2))); //equation 5
+                break;
+                
+                
+
+        }
+        return result;
+    }
+}
